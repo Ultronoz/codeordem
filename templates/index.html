@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <style>
+        /* Evita quebra de linha nas células */
+        .table td {
+            white-space: nowrap;
+        }
+    </style>
+    <div class="grid text-center">
+         
+        <!-- Example split danger button -->
+        <!-- Example single danger button -->
+        <div class="btn-group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            Opções
+            </button>
+            <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/cadastro">Adicionar ordem</a></li>
+            <li><a class="dropdown-item" href="/">Ordens</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/concluidos">Concluidas</a></li>
+            </ul>
+        </div>
+        
+        <div class="grid text-center"><h1><br>Ordens</h1></div> 
+        
+      </div>
+      <div class="container">
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Ordens</th>
+                    <th scope="col">quantidade</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Tarefa</th> <!-- Nova coluna para o botão "Concluir" -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in dados %}
+                <tr>
+                    <td>{{ item[0] }}</td>
+                    <td>{{ item[1] }}</td>
+                    <td>{{ item[2] }}</td>
+                    <td>{{ item[3] }}</td>
+                    <td>
+                        <form action='/delete_entry/{{ item[0] }}' method="post">
+                            <button type="submit" class="btn btn-success">Concluir</button>
+                        </form>
+                    </td> <!-- Botão "Concluir" com função onclick -->
+                </tr>
+                {% endfor %}
+                
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

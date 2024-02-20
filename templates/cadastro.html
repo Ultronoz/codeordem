@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<style>
+    /* Evita quebra de linha nas células */
+    .table td {
+        white-space: nowrap;
+    }
+</style>
+<div class="grid text-center">
+     
+    <!-- Example split danger button -->
+    <!-- Example single danger button -->
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        Opções
+        </button>
+        <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="/cadastro">Adicionar ordem</a></li>
+        <li><a class="dropdown-item" href="/">Ordens</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/concluidos">Concluidas</a></li>
+        </ul>
+    </div>
+    
+   <hr>
+  </div>
+<div class="container mt-4">
+    <h2>Formulário de Cadastro</h2>
+    <form method="post" action="/cadastro">
+
+        <div class="mb-3 row">
+            <label for="quantidade" class="col-sm-2 col-form-label">Quantidade</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="quantidade" id="quantidade" placeholder="Quantidade">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="nome" class="col-sm-2 col-form-label">Nome</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <label for="telefone" class="col-sm-2 col-form-label">Telefone</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Telefone">
+            </div>
+        </div>
+        <div class="col-auto">
+            <button type="submit" class="btn btn-success mb-3">Enviar</button>
+          </div>
+    </form>
+</div>
+{% endblock %}
